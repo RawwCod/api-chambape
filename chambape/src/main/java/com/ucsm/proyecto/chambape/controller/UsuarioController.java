@@ -25,6 +25,7 @@ public class UsuarioController {
 
     @GetMapping
     public ArrayList<Usuario> getAllUsuarios(){
+        System.out.println("Obteniendo todos los usuarios");
         return usuarioService.getAllUsuario();
     }
 
