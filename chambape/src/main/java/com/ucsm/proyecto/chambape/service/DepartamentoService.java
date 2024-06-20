@@ -20,7 +20,7 @@ public class DepartamentoService {
     public void saveDepartamento(DepartamentoDto departamentoDto){
         DepartamentoCober departamento=new DepartamentoCober();
         departamento.setNombre(departamentoDto.nombre());
-        departamento.setEstado(Estado.Activo);
+        departamento.setEstado(departamentoDto.estado());
         departamentoRepository.save(departamento);
     }
 

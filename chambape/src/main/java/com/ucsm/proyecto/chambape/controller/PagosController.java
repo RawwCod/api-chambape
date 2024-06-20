@@ -11,9 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ucsm.proyecto.chambape.dto.InformacionPagoDto;
+import com.ucsm.proyecto.chambape.dto.MetodoCobroDto;
 import com.ucsm.proyecto.chambape.dto.ResponsePagoDto;
+import com.ucsm.proyecto.chambape.model.MetodoCobro;
 import com.ucsm.proyecto.chambape.model.Usuario;
 import com.ucsm.proyecto.chambape.repository.UsuarioRepository;
+import com.ucsm.proyecto.chambape.service.MetodoCobroService;
 import com.ucsm.proyecto.chambape.service.PagoService;
 import com.ucsm.proyecto.chambape.service.UsuarioService;
 
@@ -24,6 +27,8 @@ public class PagosController {
     private PagoService pagoService;
     @Autowired
     private UsuarioRepository usuarioRepository;
+    @Autowired
+    private MetodoCobroService metodoCobroService;
     
     @GetMapping(path = "{id}")
     public ArrayList<ResponsePagoDto> getPagosByUsuario(@PathVariable Integer id){
@@ -35,5 +40,15 @@ public class PagosController {
         Usuario usuario=usuarioRepository.findById(informacionPagoDto.idUsuario()).get();
         usuario.setNumCuenta(informacionPagoDto.numCuenta());
         return usuarioRepository.save(usuario)!=null;
+    }
+
+    @PostMapping(path = "/metodoCobro")
+    public void addMetodoCobro(@RequestBody MetodoCobroDto metodoCobroDto){
+        metodoCobroService.saveMetodoCobro(metodoCobroDto);
+    }
+
+    @GetMapping(path = "/metodoCobro")
+    public ArrayList<MetodoCobro> getAllMetodoCobro(){
+        return metodoCobroService.getAllMetodoCobro();
     }
 }
