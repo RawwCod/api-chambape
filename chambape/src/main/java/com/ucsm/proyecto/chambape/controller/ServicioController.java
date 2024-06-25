@@ -33,6 +33,7 @@ public class ServicioController {
 
     @PostMapping
     public void addServicio(@RequestBody ServicioDto servicioDto){
+        System.out.println("GAAAAAAAAAAAAAAAAAAAA "+servicioDto+" GAAAAAAAAAAAAA");
         servicioService.saveServicio(servicioDto);
     }
 
