@@ -40,6 +40,11 @@ public class UploadFileService {
 		String uniqueFilename = UUID.randomUUID().toString() + "_" + file.getOriginalFilename();
 		Path rootPath = getPath(uniqueFilename);
 		System.out.println("rootPath: " + rootPath);
+		System.out.println("rootPath.toString(): " + rootPath.toString());
+		if(Files.exists(Paths.get(rootPath.toString()))){
+			System.out.println("El archivo ya existe.");
+			throw new IOException("El archivo ya existe.");
+		}
 		Files.copy(file.getInputStream(), rootPath);
 		return uniqueFilename;
 		} catch (IOException e) {
