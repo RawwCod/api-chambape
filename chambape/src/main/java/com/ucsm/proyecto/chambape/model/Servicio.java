@@ -26,7 +26,7 @@ public class Servicio {
     String descripcion;
 
     //faltan parametros para la imagen
-    File imagen;
+    String imagen;
 
     @Enumerated(EnumType.STRING)    
     Estado estado;

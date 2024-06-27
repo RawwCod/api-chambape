@@ -9,7 +9,7 @@ public record ServicioDto(
     Integer idProveedor,
     String nombre,
     String descripcion,
-    File imagen,
+    String imagen,
     Double precio,
     Integer idSubCategoria,
     Boolean estado,

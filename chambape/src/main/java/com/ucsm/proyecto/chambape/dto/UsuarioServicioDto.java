@@ -15,7 +15,7 @@ public record UsuarioServicioDto(
     Boolean estado,
     Integer calificacion,
     Double precio,
-    File foto,
+    String foto,
     String descripcion,
     UnidadCobro unidadCobro,
     Boolean pagoAnticipado,
