@@ -41,8 +41,8 @@ public class UploadFileService {
 		Path rootPath = getPath(uniqueFilename);
 		System.out.println("rootPath: " + rootPath);
 		System.out.println("rootPath.toString(): " + rootPath.toString());
-		if(Files.exists(Paths.get(rootPath.toString()))){
-			System.out.println("El archivo ya existe.");
+		if(Files.exists(rootPath)){
+			System.out.println("La ruta existe.");
 			throw new IOException("El archivo ya existe.");
 		}
 		Files.copy(file.getInputStream(), rootPath);
