@@ -17,7 +17,7 @@ import java.util.UUID;
 
 @Service
 public class UploadFileService {
-    private final static String UPLOAD_FOLDER = "uploads";
+    private final static String UPLOAD_FOLDER = "chambape/uploads";
 
     public Resource load(String filename) throws MalformedURLException {
         Path path = getPath(filename);
